@@ -47,6 +47,7 @@ if has('nvim')
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'hillenr14/tech_support'
+  Plug 'vim-airline/vim-airline'
 
   " TODO: look into these plugins:
   " Explore files
