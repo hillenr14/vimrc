@@ -1,10 +1,3 @@
-" Color mode
-if (has("termguicolors"))
-  set termguicolors       " TrueColor!
-else
-  set t_Co=256            " 256 color mode in term
-endif
-
 " Install vim-plug
 if has('win32')
     set shell=powershell
