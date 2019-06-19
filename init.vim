@@ -40,14 +40,15 @@ let g:GuiInternalClipboard = 1
 call plug#begin('~/.local/share/nvim/plugged')
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
-  Plug 'zchee/deoplete-jedi' " autocompletion source
-  Plug 'w0rp/ale' " using flake8
-  Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'hillenr14/tech_support'
-  Plug 'vim-airline/vim-airline'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
+Plug 'zchee/deoplete-jedi' " autocompletion source
+Plug 'w0rp/ale' " using flake8
+Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+endif
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'hillenr14/tech_support'
+Plug 'vim-airline/vim-airline'
 
   " TODO: look into these plugins:
   " Explore files
@@ -70,7 +71,6 @@ if has('nvim')
 
   " TODO: Find autocompletion, linting plugins for js, React
 
-endif
 call plug#end()
 
 " General settings
@@ -124,6 +124,21 @@ let g:ale_lint_on_insert_leave = 1
 let g:tagbar_autofocus = 1
 nnoremap <silent> <F4> :TagbarToggle<CR>
 
+"File type specific settings ---------------------- {{{
+    augroup filetype_s
+        autocmd!
+        autocmd FileType vim setlocal foldmethod=marker | setlocal foldcolumn=2
+        autocmd FileType c setlocal foldmethod=syntax | setlocal foldcolumn=5
+        autocmd FileType python setlocal foldmethod=indent | setlocal foldcolumn=5
+        autocmd FileType tech_sup setlocal foldcolumn=2
+    augroup END
+" }}}
+" Global auto commands ---------------------- {{{
+    augroup global
+        autocmd!
+        autocmd BufReadPost * if len(tabpagebuflist()) == 1 | :tabmove | endif 
+    augroup END
+" }}}
 " papercolor-theme
 set background=dark
 colorscheme PaperColor

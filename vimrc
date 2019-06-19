@@ -35,6 +35,7 @@ endif
 call plug#begin(plugin_dir)
 Plug 'hillenr14/tech_support'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 
@@ -52,7 +53,6 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>set autoindent
-let $CVSROOT = ":pserver:hillenr@cvspc.mv.usa.alcatel.com:/swdev/cvsrep"
 " General settings ---------------------- {{{
     set encoding=utf-8
     set expandtab
