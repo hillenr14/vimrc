@@ -34,7 +34,7 @@ endif
 
 let g:GuiInternalClipboard = 1
 " Set Python interpreter
-let g:python3_host_prog = '/home/hillenr/anaconda3/bin/python'
+"let g:python3_host_prog = systemlist("which python3")[0]
 
 " Specify a directory for plugins
 call plug#begin('~/.local/share/nvim/plugged')
