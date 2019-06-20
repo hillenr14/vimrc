@@ -1,5 +1,5 @@
 " Install vim-plug
-if has('win32')
+if has('win32') || has('win64')
     set shell=powershell
     let uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     if has('nvim')
@@ -40,15 +40,16 @@ let g:GuiInternalClipboard = 1
 call plug#begin('~/.local/share/nvim/plugged')
 
 if has('nvim')
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
-Plug 'zchee/deoplete-jedi' " autocompletion source
-Plug 'w0rp/ale' " using flake8
-Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
+    Plug 'zchee/deoplete-jedi' " autocompletion source
+    Plug 'w0rp/ale' " using flake8
+    Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
+    Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 endif
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'hillenr14/tech_support'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
   " TODO: look into these plugins:
   " Explore files
