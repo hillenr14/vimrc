@@ -75,7 +75,7 @@ vnoremap <silent> # :<C-U>
     set visualbell
     set wrap
     if  has('gui_win32')
-"       set guifont=Consolas:h9:cANSI
+        set guifont=Consolas:h9:cANSI
     elseif has('unix') && !has('mac')
 "       set guifont=Courier\ 10
     elseif has('mac')
