@@ -33,9 +33,15 @@ endif
 
 " Specify a directory for plugins
 call plug#begin(plugin_dir)
-Plug 'hillenr14/tech_support'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
+Plug 'zchee/deoplete-jedi' " autocompletion source
+Plug 'w0rp/ale' " using flake8
+Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'hillenr14/tech_support'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
@@ -54,6 +60,7 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>set autoindent
 " General settings ---------------------- {{{
+    set path+=**
     set encoding=utf-8
     set expandtab
     set fileformats=unix,dos
@@ -61,6 +68,8 @@ vnoremap <silent> # :<C-U>
     set showmatch
     set softtabstop=4
     set tabstop=4
+    set number
+    set relativenumber
     set ttyfast
     set undolevels=255
     set visualbell
@@ -68,11 +77,12 @@ vnoremap <silent> # :<C-U>
     if  has('gui_win32')
         set guifont=Consolas:h9:cANSI
     elseif has('unix') && !has('mac')
-        set guifont=Courier\ 10
+"       set guifont=Courier\ 10
     elseif has('mac')
-        set guifont=Courier\ 9
+"       set guifont=Courier\ 9
     endif
     set ignorecase
+    set smartcase
     set grepprg=grep\ -nH
     syntax on
     set hlsearch incsearch
