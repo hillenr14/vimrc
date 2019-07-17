@@ -36,29 +36,34 @@ call plug#begin(plugin_dir)
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
 Plug 'zchee/deoplete-jedi' " autocompletion source
 Plug 'w0rp/ale' " using flake8
-Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
+if v:version >= 800
+    Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
+endif
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'hillenr14/tech_support'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+  " TODO: look into these plugins:
+  " Explore files
+  " Plug 'tpope/vim-vinegar'
+  " Plug 'justinmk/vim-dirvish'
+  " Plug 'tpope/vim-projectionist'
+  
+  " Git integration
+  " Plug 'airblade/vim-gitgutter'
+  " Plug 'tpope/vim-fugitive'
+
+  " Other
+  " Plug 'vimwiki/vimwiki'
+  " Plug 'tpope/vim-surround'
+  " Plug 'wellle/targets.vim'
+  " Plug 'justinmk/vim-sneak'
+  " Plug 'tpope/vim-unimpaired'
+  " Plug 'kein/rainbow_parentheses.vim'
+  " Plug 'fisadev/vim-sort'
 call plug#end()
 
-
-"filetype plugin on
-"execute pathogen#infect(vimpath . '/bundle/{}')
-"call pathogen#infect()
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>set autoindent
 " General settings ---------------------- {{{
     set path+=**
     set encoding=utf-8
@@ -137,7 +142,7 @@ vnoremap <silent> # :<C-U>
     augroup filetype_s
         autocmd!
         autocmd FileType vim setlocal foldmethod=marker | setlocal foldcolumn=2
-        autocmd FileType c setlocal foldmethod=syntax | setlocal foldcolumn=5
+        "autocmd FileType c setlocal foldmethod=syntax | setlocal foldcolumn=5
         autocmd FileType python setlocal foldmethod=indent | setlocal foldcolumn=5
         autocmd FileType tech_sup setlocal foldcolumn=2
     augroup END
@@ -148,6 +153,22 @@ vnoremap <silent> # :<C-U>
         autocmd BufReadPost * if len(tabpagebuflist()) == 1 | :tabmove | endif 
     augroup END
 " }}}
+" Plugin settings
+
+" deoplete.nvim, deoplete-jedi
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+
+" ale, flake8 settings
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+
+" tagbar
+let g:tagbar_autofocus = 1
+nnoremap <silent> <F4> :TagbarToggle<CR>
+
 " papercolor-theme
 set background=dark
 colorscheme PaperColor

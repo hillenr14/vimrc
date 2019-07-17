@@ -129,7 +129,7 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
     augroup filetype_s
         autocmd!
         autocmd FileType vim setlocal foldmethod=marker | setlocal foldcolumn=2
-        autocmd FileType c setlocal foldmethod=syntax | setlocal foldcolumn=5
+        "autocmd FileType c setlocal foldmethod=syntax | setlocal foldcolumn=5
         autocmd FileType python setlocal foldmethod=indent | setlocal foldcolumn=5
         autocmd FileType tech_sup setlocal foldcolumn=2
     augroup END
