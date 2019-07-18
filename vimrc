@@ -79,6 +79,9 @@ call plug#end()
     set undolevels=255
     set visualbell
     set wrap
+    set cursorline
+    set mouse=a
+    set scrolloff=5
     if  has('gui_win32')
         set guifont=Consolas:h9:cANSI
     elseif has('unix') && !has('mac')
