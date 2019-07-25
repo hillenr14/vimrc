@@ -1,6 +1,6 @@
 #!/bin/sh
 vim=~/.vimrc
-zshrc=~/.zshrc
+tmux=~/.tmux.conf
 nvim=~/.config/nvim/init.vim
 p10k=~/.oh-my-zsh/custom/themes/powerlevel10k/internal/p10k.zsh
 if [ -e $vim -a ! -L $vim ]; then
@@ -33,11 +33,11 @@ if [ -e $p10k -a ! -L $p10k ]; then
 elif [ ! -e $p10k ]; then
     echo "$p10k does not exist"
 fi
-if [ -e $zshrc -a ! -L $zshrc ]; then
-    echo "Replacing $zshrc with link to zshrc"
-    rm $zshrc
-    ln -s ~/vimrc/zshrc $zshrc
-elif [ ! -e $zshrc ]; then
-    echo "Creating $zshrc link to zshrc"
-    ln -s ~/vimrc/zshrc $zshrc
+if [ -e $tmux -a ! -L $tmux ]; then
+    echo "Replacing $tmux with link to tmux.conf"
+    rm $tmux
+    ln -s ~/vimrc/tmux.conf $tmux
+elif [ ! -e $tmux ]; then
+    echo "Creating $tmux link to tmux.conf"
+    ln -s ~/vimrc/tmux.conf $tmux
 fi

@@ -63,6 +63,8 @@ Plug 'vim-airline/vim-airline-themes'
   " Plug 'kein/rainbow_parentheses.vim'
   " Plug 'fisadev/vim-sort'
 call plug#end()
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'python': ['mypy', 'flake8']}
 
 " General settings ---------------------- {{{
     set path+=**
@@ -114,7 +116,7 @@ call plug#end()
 "   nnoremap / /\v
     let mapleader = ","
     nnoremap <leader>sv :source $MYVIMRC<cr>
-    nnoremap <leader>ev :execute ":tabnew " . vimpath . "/my.vimrc"<cr>
+    nnoremap <leader>ev :execute ":tabnew " . $MYVIMRC<cr>
 "   nnoremap <leader>g :silent execute ":grep! " . shellescape(expand("<cWORD>")) . " '%'"<cr>:copen<cr>
     nnoremap <leader>j :lnext<cr>
     nnoremap <leader>k :lprevious<cr>
@@ -146,7 +148,7 @@ call plug#end()
         autocmd!
         autocmd FileType vim setlocal foldmethod=marker | setlocal foldcolumn=2
         "autocmd FileType c setlocal foldmethod=syntax | setlocal foldcolumn=5
-        autocmd FileType python setlocal foldmethod=indent | setlocal foldcolumn=5
+        "autocmd FileType python setlocal foldmethod=indent | setlocal foldcolumn=5
         autocmd FileType tech_sup setlocal foldcolumn=2
     augroup END
 " }}}
@@ -175,4 +177,15 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 " papercolor-theme
 set background=dark
 colorscheme PaperColor
-" :execute 'echom "vimrc loaded!"' . "\n" 
+
+" copy to attached terminal using the yank(1) script:
+" https://github.com/sunaku/home/blob/master/bin/yank
+function! Yank(text) abort
+  let escape = system('yank', a:text)
+  if v:shell_error
+    echoerr escape
+  else
+    call writefile([escape], '/dev/tty', 'b')
+  endif
+endfunction
+noremap <Leader>y "+y:<C-U>call Yank(@+)<CR>
