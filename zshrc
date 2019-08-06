@@ -121,7 +121,7 @@ elif [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 DEFAULT_USER="hillenr"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time vi_mode)
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='N'
