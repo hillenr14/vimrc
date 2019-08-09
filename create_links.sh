@@ -26,13 +26,13 @@ elif [ ! -e $nvim ]; then
     echo "Creating $nvim link to vimrc"
     ln -s ~/vimrc/vimrc $nvim
 fi
-if [ -e $p10k -a ! -L $p10k ]; then
-    echo "Replacing $p10k with link to p10k.zsh"
-    rm $p10k
-    ln -s ~/vimrc/p10k.zsh $p10k
-elif [ ! -e $p10k ]; then
-    echo "$p10k does not exist"
-fi
+#if [ -e $p10k -a ! -L $p10k ]; then
+#    echo "Replacing $p10k with link to p10k.zsh"
+#    rm $p10k
+#    ln -s ~/vimrc/p10k.zsh $p10k
+#elif [ ! -e $p10k ]; then
+#    echo "$p10k does not exist"
+#fi
 if [ -e $tmux -a ! -L $tmux ]; then
     echo "Replacing $tmux with link to tmux.conf"
     rm $tmux
