@@ -1,4 +1,3 @@
-unset __conda_setup
 # <<< conda initialize <<<
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -110,11 +109,13 @@ elif [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 DEFAULT_USER="hillenr"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time vi_mode)
+POWERLEVEL9K_CONTEXT_TEMPLATE="%m"
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='N'
-POWERLEVEL9K_ANACONDA_BACKGROUND='lightgoldenrod1'
+POWERLEVEL9K_CONTEXT_BACKGROUND='lightgoldenrod1'
+POWERLEVEL9K_CONTEXT_FOREGROUND='black'
 POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='silver'
 POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='black'
 POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='darkred'
@@ -122,4 +123,3 @@ POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='lightgoldenrod2'
 POWERLEVEL9K_DIR_HOME_BACKGROUND='lightgoldenrod2'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='lightgoldenrod2'
 POWERLEVEL9K_DIR_ETC_BACKGROUND='lightgoldenrod2'
-POWERLEVEL9K_ANACONDA_SHOW_PYTHON_VERSION=false
