@@ -44,6 +44,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'hillenr14/tech_support'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdtree'
   " TODO: look into these plugins:
   " Explore files
   " Plug 'tpope/vim-vinegar'
@@ -123,6 +124,10 @@ vnoremap <silent> # :<C-U>
     if !exists(":Bd")
         command Bd bp | sp | bn | bd
     endif
+    " Nerd tree
+	map <leader>n :NERDTreeToggle<CR>
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "   noremap <c-c> <c-Ins>
 "   noremap <c-v> <s-Ins>
 "   nnoremap / /\v
