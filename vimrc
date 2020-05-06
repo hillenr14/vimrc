@@ -126,6 +126,7 @@ vnoremap <silent> # :<C-U>
 "   noremap <c-c> <c-Ins>
 "   noremap <c-v> <s-Ins>
 "   nnoremap / /\v
+    nnoremap <c-s> :wr<cr>
     let mapleader = ","
     nnoremap <leader>sv :source $MYVIMRC<cr>
     nnoremap <leader>ev :execute ":tabnew " . $MYVIMRC<cr>
