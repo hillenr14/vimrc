@@ -33,9 +33,9 @@ endif
 
 " Specify a directory for plugins
 call plug#begin(plugin_dir)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
-Plug 'zchee/deoplete-jedi' " autocompletion source
-Plug 'w0rp/ale' " using flake8
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion framework
+" Plug 'zchee/deoplete-jedi' " autocompletion source
+" Plug 'w0rp/ale' " using flake8
 if v:version >= 800
     Plug 'ludovicchabant/vim-gutentags' " create, maintain tags (using universal-ctags)
 endif
@@ -64,8 +64,8 @@ Plug 'preservim/nerdtree'
   " Plug 'kein/rainbow_parentheses.vim'
   " Plug 'fisadev/vim-sort'
 call plug#end()
-let g:ale_linters_explicit = 1
-let g:ale_linters = {'python': ['mypy', 'flake8']}
+  " let g:ale_linters_explicit = 1
+  " let g:ale_linters = {'python': ['mypy', 'flake8']}
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -147,6 +147,13 @@ vnoremap <silent> # :<C-U>
         \ matchstr(expand("<cword>"), '\v\d{6}')<cr>
     endif
     "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+    nnoremap <M-v> <C-v>
+    xnoremap <M-v> <C-v>
+    nnoremap <C-c> "+y
+    xnoremap <C-c> "+y
+    nnoremap <C-v> "+p
+    noremap! <C-v> <C-r>+
+    inoremap <C-v> <C-r>+
 " }}}
 " Status line ---------------------- {{{
     set laststatus=2          " always show status line 
@@ -179,14 +186,14 @@ vnoremap <silent> # :<C-U>
 " Plugin settings
 
 " deoplete.nvim, deoplete-jedi
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#jedi#show_docstring = 1
+" let g:deoplete#enable_ignore_case = 1
+" let g:deoplete#enable_smart_case = 1
 
 " ale, flake8 settings
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 1
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_insert_leave = 1
 
 " tagbar
 let g:tagbar_autofocus = 1
